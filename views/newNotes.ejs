@@ -1,0 +1,32 @@
+
+<!-- header -->
+<%- include("./partials/header") %>
+<!-- end header -->
+
+
+<main class="container margin-top position-relative">
+	<h1 class="text-center">Add new Notes</h1>
+
+	<form>
+		<div class="mb-4">
+		  <label for="notes-title" class="form-label">Notes title</label>
+		  <input type="text" class="form-control" id="notes-title" placeholder="new notes...">
+		</div>
+		<div class="mb-4">
+		  <label for="notes-description" class="form-label">Notes description</label>
+		  <input type="text" class="form-control" id="notes-description" placeholder="notes description...">
+		</div>
+		<div class="mb-4">
+		  <label for="notes-content" class="form-label">Notes Content</label>
+		  <textarea class="form-control" id="notes-content" rows="6"></textarea>
+		</div>
+		<div class="mb-4 d-grid">
+		   <button type="button" class="btn btn-outline-info">Add notes</button>
+		</div>
+	<form/>
+</main>
+
+
+<!-- footer -->
+<%- include("./partials/footer") %>
+<!-- end footer -->
