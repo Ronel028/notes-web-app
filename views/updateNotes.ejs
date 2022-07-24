@@ -1,0 +1,32 @@
+
+<!-- header -->
+<%- include("./partials/header") %>
+<!-- end header -->
+
+
+<main class="container margin-top position-relative">
+	<h1 class="text-center">Update Notes</h1>
+
+	<form>
+		<div class="mb-4">
+		  <label for="update-title" class="form-label">Update title</label>
+		  <input type="text" class="form-control" id="update-title" placeholder="update notes...">
+		</div>
+		<div class="mb-4">
+		  <label for="update-description" class="form-label">Update description</label>
+		  <input type="text" class="form-control" id="update-description" placeholder="update description...">
+		</div>
+		<div class="mb-4">
+		  <label for="update-content" class="form-label">Update Content</label>
+		  <textarea class="form-control" id="update-content" rows="6"></textarea>
+		</div>
+		<div class="mb-4 d-grid">
+		   <button type="button" class="btn btn-outline-dark">Update</button>
+		</div>
+	<form/>
+</main>
+
+
+<!-- footer -->
+<%- include("./partials/footer") %>
+<!-- end footer -->

@@ -7,7 +7,7 @@
 <main class="container margin-top position-relative">
 	<h1 class="text-center">Add new Notes</h1>
 
-	<form>
+	<form id="insert-form">
 		<div class="mb-4">
 		  <label for="notes-title" class="form-label">Notes title</label>
 		  <input type="text" class="form-control" id="notes-title" placeholder="new notes...">
@@ -21,10 +21,12 @@
 		  <textarea class="form-control" id="notes-content" rows="6"></textarea>
 		</div>
 		<div class="mb-4 d-grid">
-		   <button type="button" class="btn btn-outline-info">Add notes</button>
+		   <button type="submit" class="btn btn-outline-dark">Add notes</button>
 		</div>
 	<form/>
 </main>
+
+<script src="/js/clientInsert.js"></script>
 
 
 <!-- footer -->

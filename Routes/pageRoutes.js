@@ -10,4 +10,8 @@ router.get('/addnewnotes', function(req, res){
 	res.render('newNotes');
 })
 
+router.get('/updatenotes', function(req, res){
+	res.render('updateNotes');
+})
+
 module.exports = router;
