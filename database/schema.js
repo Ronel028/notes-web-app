@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const NotesSchema = new mongoose.Schema({
 	title: {
@@ -14,8 +15,8 @@ const NotesSchema = new mongoose.Schema({
 		require: true
 	},
 	 date: { 
-	 	type: Date,
-	 	default: Date.now 
+	 	type: String,
+	 	default: moment(Date.now()).format('LLL')
 	 }
 })
 

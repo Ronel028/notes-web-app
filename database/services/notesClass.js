@@ -1,21 +1,40 @@
 
 const db = require('../schema');
 
-class Notes{
-	constructor(title, description, content){
-		this.title = title,
-		this.description = description,
-		this.content = content
-	}
 
+class Notes{
 	// insert function
-	insert(){
+	insert(title, description, content){
 		return new Promise(function(resolve, reject){
 			db.create({
-				title: this.title,
-				description: this.description,
-				content: this.content
+				title: title,
+				description: description,
+				content: content
 			}, function(error, result){
+				if(error){
+					reject(error)
+				}else{
+					resolve(result)
+				}
+			})
+		})
+	}
+
+	// display operation
+	view(){
+		return new Promise(function(resolve, reject){
+			db.find({}, function(error, result){
+				if(error){
+					reject(error)
+				}else{
+					resolve(result)
+				}
+			})
+		})
+	}
+	deleteNotes(id){
+		return new Promise(function(resolve, reject){
+			db.deleteOne({ _id : id}, function(error, result){
 				if(error){
 					reject(error)
 				}else{

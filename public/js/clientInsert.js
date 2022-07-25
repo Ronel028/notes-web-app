@@ -14,10 +14,18 @@ form.addEventListener("submit", async function(e){
 		method: 'POST',
 		headers: {'Content-Type': 'application/json' },
 		body: JSON.stringify({
-			title: "HTML",
-			description: "Javascript is the best",
-			content: "Learn Javascript"
+			title: insertTitle.value,
+			description: insertDesc.value,
+			content: insertContent.value
 		})
 	})
 	console.log(insertNotes)
+	resetInput();
 })
+
+// function to reset all input
+function resetInput(){
+	insertTitle.value = "";
+	insertDesc.value = "";
+	insertContent.value = "";
+}
