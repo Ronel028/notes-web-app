@@ -58,8 +58,24 @@ router.delete("/deletenotes", async function(req, res){
 			message: "Failed"
 		})
 	}
-	
+})
 
+// update notes data from database
+router.post("/updatemynotes", async function(req, res){
+	try {
+		const { id } = req.query;
+		const { title, desc, content } = req.body;
+		const updateNotes = await Notes.updateNotes(id, title, desc, content)
+		console.log(updateNotes)
+		res.json({
+			message: "OK"
+		})
+	} catch (error) {
+		console.log(error)
+		res.json({
+			message: "Failed"
+		})
+	}
 })
 
 module.exports = router

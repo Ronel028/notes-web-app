@@ -7,25 +7,39 @@
 <main class="container margin-top position-relative">
 	<h1 class="text-center">Update Notes</h1>
 
-	<form>
+	<form id="update-form"> 
 		<div class="mb-4">
 		  <label for="update-title" class="form-label">Update title</label>
-		  <input type="text" class="form-control" id="update-title" placeholder="update notes...">
+		  <input 
+			type="text" 
+			class="form-control" 
+			id="update-title" 
+			placeholder="update notes..."
+			value="<%= title %>"
+		  />
 		</div>
 		<div class="mb-4">
 		  <label for="update-description" class="form-label">Update description</label>
-		  <input type="text" class="form-control" id="update-description" placeholder="update description...">
+		  <input 
+			type="text" 
+			class="form-control" 
+			id="update-description" 
+			placeholder="update description..."
+			value="<%= description %>"
+		  />
 		</div>
 		<div class="mb-4">
 		  <label for="update-content" class="form-label">Update Content</label>
-		  <textarea class="form-control" id="update-content" rows="6"></textarea>
+		  <textarea class="form-control" id="update-content" rows="6"><%= content %></textarea>
 		</div>
 		<div class="mb-4 d-grid">
-		   <button type="button" class="btn btn-outline-dark">Update</button>
+		   <button type="submit" class="btn btn-outline-dark">Update</button>
 		</div>
 	<form/>
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js" integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/update.js"></script>
 
 <!-- footer -->
 <%- include("./partials/footer") %>

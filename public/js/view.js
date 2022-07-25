@@ -26,7 +26,7 @@ function myNotes(notes){
                         <p class="card-text">${description}</p>
                         <div class="buttons w-100 d-flex justify-content-between">
                             <a href="#" class="btn btn-primary">View all</a>
-                            <a href="/updatenotes"><img src="/images/edit.png" alt="edit"/></a>
+                            <a href="/updatenotes/${title}/${description}/${content}?id=${_id}"><img src="/images/edit.png" alt="edit"/></a>
                         </div>
                     </div>
                 </div>
@@ -38,11 +38,12 @@ function myNotes(notes){
 }
 
 // delete
-async function deleteNotes(id){
-    const note = await fetch(`/service/deletenotes?id=${id}`, {
+async function deleteNotes(noteId){
+    const note = await fetch(`/service/deletenotes?id=${noteId}`, {
         method: "DELETE"
     })
 
     console.log(note)
     notes();
 }
+
