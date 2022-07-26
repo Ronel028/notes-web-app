@@ -1,11 +1,45 @@
 console.log("view data testing")
 
+let notesArray = [];
+
 async function notes(){
     const notesData = await fetch('/service/getdata')
-    const response = await notesData.json();
-    myNotes(response)
+    notesArray = await notesData.json();
+    myNotes(notesArray)
 } 
 notes();
+
+// search notes
+const searchInput = document.getElementById("search")
+const searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", searchNotes)
+function searchNotes(){
+    let input = searchInput.value;
+    if(input === ""){
+        notes();
+        return;
+    }
+    const filterdNotes = notesArray.filter(item =>{
+        if(item.title === input){
+            return [item]
+        }
+    })
+    
+    if(filterdNotes != input){
+        myNotes(filterdNotes)
+    }else{
+        console.log("No data found")
+    }
+    
+    
+
+}
+searchInput.addEventListener('change', function(){
+    if(this.value === ""){
+        notes();
+    }
+})
+
 
 const dataContainer = document.getElementById("data-container")
 function myNotes(notes){
