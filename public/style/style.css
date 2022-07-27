@@ -18,3 +18,39 @@
     bottom: 5%;
     right: 6%;
 }
+
+.dot--container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25%;
+}
+
+.dot--container .dots{
+    display: flex;
+    align-items: center;
+}
+.dot--container .dots .dot{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(90, 94, 92);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.dot--container .dots .dot.dot-1{
+    animation: animateBounceUp 0.6s 0.1s linear infinite;
+}
+.dot--container .dots .dot.dot-2{
+    animation: animateBounceUp 0.6s 0.2s linear infinite;
+}
+.dot--container .dots .dot.dot-3{
+    animation: animateBounceUp 0.6s 0.3s linear infinite;
+}
+
+@keyframes animateBounceUp{
+
+    50%{
+        transform: translate(0, 17px)
+    }
+
+}

@@ -21,4 +21,13 @@ router.get('/updatenotes/:title/:desc/:content', function(req, res){
 	
 })
 
+router.get('/view-notes/:title/:desc/:content', function(req, res){
+	const { title, desc, content } = req.params
+	res.render('viewAll',  {
+		title: title,
+		description: desc,
+		content: content
+	});
+})
+
 module.exports = router;

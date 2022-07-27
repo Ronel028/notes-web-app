@@ -1,18 +1,24 @@
 console.log("view data testing")
 
 let notesArray = [];
+const dataContainer = document.getElementById("data-container")
+
+// loading
+const loading = document.getElementById("loading")
 
 async function notes(){
+    loading.classList.remove('d-none')
     const notesData = await fetch('/service/getdata')
     notesArray = await notesData.json();
     myNotes(notesArray)
+    loading.classList.add('d-none')
 } 
 notes();
 
 // search notes
 const searchInput = document.getElementById("search")
 const searchButton = document.getElementById("searchButton");
-
+searchButton.addEventListener("click", searchNotes)
 searchInput.addEventListener('keyup', function(e){
     if(e.key === 'Enter'){
        searchNotes()
@@ -21,8 +27,6 @@ searchInput.addEventListener('keyup', function(e){
     }
     
 })
-searchButton.addEventListener("click", searchNotes)
-
 function searchNotes(){
 
     let input = searchInput.value;
@@ -39,22 +43,21 @@ function searchNotes(){
         }
     })
 
-    // condition if filtered return is empty of has a value
+    // condition if filtered return is empty and return if has a value
     if(arrayNotes.length === 0){
-        console.log("No data found")
         myNotes(arrayNotes)
+        dataContainer.innerHTML = "<h3>No data found...</h3>"
     }else{
         myNotes(arrayNotes)
     }
 }
+// search input reset output
 searchInput.addEventListener('change', function(){
     if(this.value === ""){
         notes();
     }
 })
 
-
-const dataContainer = document.getElementById("data-container")
 function myNotes(notes){
     let data = "";
     notes.map(note=>{
@@ -72,7 +75,7 @@ function myNotes(notes){
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${description}</p>
                         <div class="buttons w-100 d-flex justify-content-between">
-                            <a href="#" class="btn btn-primary">View all</a>
+                            <a href="/view-notes/${title}/${description}/${content}" class="btn btn-primary">View all</a>
                             <a href="/updatenotes/${title}/${description}/${content}?id=${_id}"><img src="/images/edit.png" alt="edit"/></a>
                         </div>
                     </div>
