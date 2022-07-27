@@ -12,27 +12,40 @@ notes();
 // search notes
 const searchInput = document.getElementById("search")
 const searchButton = document.getElementById("searchButton");
+
+searchInput.addEventListener('keyup', function(e){
+    if(e.key === 'Enter'){
+       searchNotes()
+    }else{
+        return;
+    }
+    
+})
 searchButton.addEventListener("click", searchNotes)
+
 function searchNotes(){
+
     let input = searchInput.value;
+
     if(input === ""){
         notes();
         return;
     }
-    const filterdNotes = notesArray.filter(item =>{
-        if(item.title === input){
+
+    // FILTER notesArray by title
+    const arrayNotes = notesArray.filter(item =>{
+        if(input === item.title){
             return [item]
         }
     })
-    
-    if(filterdNotes != input){
-        myNotes(filterdNotes)
-    }else{
-        console.log("No data found")
-    }
-    
-    
 
+    // condition if filtered return is empty of has a value
+    if(arrayNotes.length === 0){
+        console.log("No data found")
+        myNotes(arrayNotes)
+    }else{
+        myNotes(arrayNotes)
+    }
 }
 searchInput.addEventListener('change', function(){
     if(this.value === ""){
