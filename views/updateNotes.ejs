@@ -18,7 +18,7 @@
 			class="form-control" 
 			id="update-title" 
 			placeholder="update notes..."
-			value="<%= title %>"
+			value="<%= notesUpdate.title %>"
 		  />
 		</div>
 		<div class="mb-4">
@@ -28,12 +28,12 @@
 			class="form-control" 
 			id="update-description" 
 			placeholder="update description..."
-			value="<%= description %>"
+			value="<%= notesUpdate.description %>"
 		  />
 		</div>
 		<div class="mb-4">
 		  <label for="update-content" class="form-label">Update Content</label>
-		  <textarea class="form-control" id="update-content" rows="6"><%= content %></textarea>
+		  <textarea class="form-control" id="update-content" rows="6"><%= notesUpdate.content %></textarea>
 		</div>
 		<div class="mb-4 d-grid">
 		   <button type="submit" class="btn btn-outline-dark">Update</button>

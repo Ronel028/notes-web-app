@@ -60,6 +60,18 @@ class Notes{
 			})
 		})
 	}
+	// find by id
+	findById(id){
+		return new Promise(function(resolve, reject){
+			db.find({ _id: id }, function(error, result){
+				if(error){
+					reject(error)
+				}else{
+					resolve(result)
+				}
+			})
+		})
+	}
 }
 
 

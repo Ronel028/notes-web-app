@@ -75,8 +75,8 @@ function myNotes(notes){
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${description}</p>
                         <div class="buttons w-100 d-flex justify-content-between">
-                            <a href="/view-notes/${title}/${description}/${content}" class="btn btn-primary">View all</a>
-                            <a href="/updatenotes/${title}/${description}/${content}?id=${_id}"><img src="/images/edit.png" alt="edit"/></a>
+                            <a href="/view-notes/${_id}" class="btn btn-primary">View all</a>
+                            <a href="/updatenotes?id=${_id}"><img src="/images/edit.png" alt="edit"/></a>
                         </div>
                     </div>
                 </div>

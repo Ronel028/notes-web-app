@@ -6,6 +6,7 @@ const router = express.Router();
 const service = require('../database/services/notesClass')
 const Notes = new service()
 
+// insert new notes ---------------------------------------------
 router.post('/insertnotes', async function(req, res){
 
 	try {
@@ -31,8 +32,10 @@ router.post('/insertnotes', async function(req, res){
 	}
 	
 })
+//--------------------------------------------------------
 
-// get data from database
+
+// get data from database ------------------------------
 router.get("/getdata", async function(req, res){
 	try {
 		const viewNotes = await Notes.view();
@@ -43,8 +46,9 @@ router.get("/getdata", async function(req, res){
 		})
 	}
 })
+// ----------------------------------------------------------
 
-// delete notes data from database
+// delete notes data from database ------------------------
 router.delete("/deletenotes", async function(req, res){
 	try {
 		const { id } = req.query;
@@ -59,8 +63,10 @@ router.delete("/deletenotes", async function(req, res){
 		})
 	}
 })
+//--------------------------------------------------------------
 
-// update notes data from database
+
+// update notes data from database -------------------------
 router.post("/updatemynotes", async function(req, res){
 	try {
 		const { id } = req.query;
@@ -77,5 +83,18 @@ router.post("/updatemynotes", async function(req, res){
 		})
 	}
 })
+//----------------------------------------------------------------
+
+// get and update notes by id ---------------------
+router.get('/view/:id', async function(req, res){
+	const findOne = await Notes.findById(req.params.id)
+	console.log(findOne)
+	res.render('viewAll', { notes: findOne[0] })
+})
+router.get('/update', async function(req, res){
+	const updateNotes = await Notes.findById(req.query.id)
+	res.render('updateNotes', { notesUpdate: updateNotes[0] })
+})
+// -----------------------------------------
 
 module.exports = router
