@@ -27,15 +27,6 @@ app.use('/service', require("./Routes/servicesRoutes"))
 const dbConnection = require("./database/mongoConnection");
 dbConnection;
 
-// 
-// app.use((err, req, res, next) => {
-// 	if (!err) return next();
-// 	return res.status(400).json({
-// 	  status: 400,
-// 	  error: 'OOps! Bad request',
-// 	});
-// });
-
 
 app.listen(PORT, function(){
 	console.log("Server started in port: ", PORT)
