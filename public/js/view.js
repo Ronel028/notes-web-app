@@ -1,4 +1,3 @@
-console.log("view data testing")
 
 let notesArray = [];
 const dataContainer = document.getElementById("data-container")

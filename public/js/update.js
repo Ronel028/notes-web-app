@@ -1,5 +1,4 @@
 
-console.log("update page")
 
 const param = location.search;
 const idParam = new URLSearchParams(param);

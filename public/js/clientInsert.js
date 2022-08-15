@@ -1,5 +1,3 @@
-console.log("Insert Notes test")
-
 
 const insertTitle = document.getElementById("notes-title");
 const insertDesc = document.getElementById("notes-description");
