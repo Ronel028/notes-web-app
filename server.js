@@ -18,14 +18,14 @@ app.use(express.urlencoded({ extended: true }))
 app.set('views', __dirname + '/views')
 app.set("view engine", "ejs")
 
+// mongoConnection
+const dbConnection = require("./database/mongoConnection");
+dbConnection;
 
 // routes
 app.use('/', require("./Routes/pageRoutes"))
 app.use('/service', require("./Routes/servicesRoutes"))
 
-// mongoConnection
-const dbConnection = require("./database/mongoConnection");
-dbConnection;
 
 
 app.listen(PORT, function(){
