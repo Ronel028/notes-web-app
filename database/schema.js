@@ -14,10 +14,10 @@ const NotesSchema = new mongoose.Schema({
 		type: String,
 		require: true
 	},
-	 date: { 
-	 	type: String,
-	 	default: moment(Date.now()).format('LLL')
-	 }
+	date: { 
+	type: String,
+	default: moment(Date.now()).format('LLL')
+	}
 })
 
 module.exports = mongoose.model("Notes", NotesSchema)

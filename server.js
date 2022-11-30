@@ -15,6 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // set view engine
+app.set('views', __dirname + '/views')
 app.set("view engine", "ejs")
 
 

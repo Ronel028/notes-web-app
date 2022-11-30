@@ -13,7 +13,6 @@ router.post('/insertnotes', async function(req, res){
 		const { title, description, content } = req.body;
 
 		if(!title || !description || !content){
-			console.log("Cannot be empty")
 			return
 
 		}else{
@@ -53,7 +52,6 @@ router.delete("/deletenotes", async function(req, res){
 	try {
 		const { id } = req.query;
 		const deleteNotes = await Notes.deleteNotes(id);
-		console.log(deleteNotes)
 		res.status(200).json({
 			message: "OK"
 		})
@@ -72,7 +70,6 @@ router.post("/updatemynotes", async function(req, res){
 		const { id } = req.query;
 		const { title, desc, content } = req.body;
 		const updateNotes = await Notes.updateNotes(id, title, desc, content)
-		console.log(updateNotes)
 		res.json({
 			message: "OK"
 		})
@@ -88,7 +85,6 @@ router.post("/updatemynotes", async function(req, res){
 // get and update notes by id ---------------------
 router.get('/view/:id', async function(req, res){
 	const findOne = await Notes.findById(req.params.id)
-	console.log(findOne)
 	res.render('viewAll', { notes: findOne[0] })
 })
 router.get('/update', async function(req, res){
